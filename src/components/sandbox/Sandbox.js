@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Hello } from "./Hello";
 import { useFetch } from "./useFetch";
 import { useForm } from "./useForm";
+import { Button, Container } from '@material-ui/core';
 
 function initCount() {
   console.log('initCount')
@@ -81,52 +82,54 @@ function Sandbox() {
 
   return (
     <React.Fragment>
-      <div>
-        <h4>Count</h4>
-        <button onClick={() =>
-          // with independant operations on an object, 
-          // need to spread the currentState object into the new object, then override the count
-          setCount(currentState => ({ ...currentState, count: currentState.count + 1 }))
-        }
-        >
-          add
+      <Container maxWidth="sm">
+        <div>
+          <h4>Count</h4>
+          <button onClick={() =>
+            // with independant operations on an object, 
+            // need to spread the currentState object into the new object, then override the count
+            setCount(currentState => ({ ...currentState, count: currentState.count + 1 }))
+          }
+          >
+            add
         </button>
-        <div>count: {count}</div>
-        <div>count2: {count2}</div>
-      </div>
+          <div>count: {count}</div>
+          <div>count2: {count2}</div>
+        </div>
 
-      <div>
-        <h4>Form</h4>
-        <input name="user" onChange={e => setUser(e.target.value)} value={user} />
-        <input type="password" name="password" onChange={e => setPassword(e.target.value)} value={password} />
-        <p>User: {user}, Password: {password}</p>
-      </div>
+        <div>
+          <h4>Form</h4>
+          <input name="user" onChange={e => setUser(e.target.value)} value={user} />
+          <input type="password" name="password" onChange={e => setPassword(e.target.value)} value={password} />
+          <p>User: {user}, Password: {password}</p>
+        </div>
 
-      <div>
-        <h4>Form 2</h4>
-        <input name="firstName" onChange={handleChange} value={formValues.firstName}
-          ref={inputRef}
-        />
-        <input name="lastName" onChange={handleChange} value={formValues.lastName} />
-        <p>a: {formValues.firstName}, b: {formValues.lastName}</p>
-      </div>
+        <div>
+          <h4>Form 2</h4>
+          <input name="firstName" onChange={handleChange} value={formValues.firstName}
+            ref={inputRef}
+          />
+          <input name="lastName" onChange={handleChange} value={formValues.lastName} />
+          <p>a: {formValues.firstName}, b: {formValues.lastName}</p>
+        </div>
 
-      <div>
-        <h4>useEffect</h4>
-        {showHello && <Hello />}
-        <button onClick={() => setShowHello(!showHello)}>Show/Hide</button>
+        <div>
+          <h4>useEffect</h4>
+          {showHello && <Hello />}
+          <Button onClick={() => setShowHello(!showHello)}>Show/Hide</Button>
 
-        <div>{loading ? "Loading..." : data}</div>
-      </div>
+          <div>{loading ? "Loading..." : data}</div>
+        </div>
 
-      <div>
-        <h4>useRef</h4>
-        <button onClick={() => {
-          inputRef.current.focus()
-        }}>Set focus</button>
+        <div>
+          <h4>useRef</h4>
+          <button onClick={() => {
+            inputRef.current.focus()
+          }}>Set focus</button>
 
-        <div>{intValue.current}</div>
-      </div>
+          <div>{intValue.current}</div>
+        </div>
+      </Container>
     </React.Fragment>
   );
 }
