@@ -10,7 +10,6 @@ import { ExpandMore } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -27,19 +26,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function PlayerCard(playerData) {
+const getInitials = (player) => {
+    return player.name.split(/\s+/).map((s) => s.substring(0,1));
+}
+
+const PlayerCard = (playerData) => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-  const [player] = React.useState(
-    {
-      name: "Brodie Smith",
-      aflClub: "Adelaide",
-      stats: [
-        { round: "1", k: 15, h: 5, m: 2, t: 1, g: 1, s: 45 },
-        { round: "2", k: 10, h: 2, m: 1, t: 0, g: 0, s: 20 },
-      ]
-    }
-  )
+  // TODO why the hell do i have to refer to playerData.playerData ????
+  const [player] = React.useState(playerData.playerData)
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -50,7 +45,7 @@ function PlayerCard(playerData) {
       <CardHeader
         avatar={
           <Avatar aria-label="player" className={classes.avatar}>
-            {player.name.substring(0, 1)}
+            {getInitials(player)}
           </Avatar>
         }
         action={
@@ -79,8 +74,9 @@ function PlayerCard(playerData) {
                   <TableCell>H</TableCell>
                   <TableCell>M</TableCell>
                   <TableCell>T</TableCell>
+                  <TableCell>R</TableCell>
                   <TableCell>G</TableCell>
-                  <TableCell>St</TableCell>
+                  <TableCell>*</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -91,6 +87,7 @@ function PlayerCard(playerData) {
                     <TableCell>{row.h}</TableCell>
                     <TableCell>{row.m}</TableCell>
                     <TableCell>{row.t}</TableCell>
+                    <TableCell>{row.r}</TableCell>
                     <TableCell>{row.g}</TableCell>
                     <TableCell>{row.s}</TableCell>
                   </TableRow>
