@@ -22,7 +22,7 @@ function Sandbox() {
   // initialiser gets called only first time component is rendered, instead of every time
   // const [count, setCount] = useState(0)
 
-  // but here is an object with an initialiser; it returns the objct and a function to modify it
+  // but here is an object with an initialiser; it returns the object and a function to modify it
   const [{ count, count2 }, setCount] = useState(() => initCount())
 
   // NOTE: an alternative would be to have mulitple useState calls, one for each field.
@@ -73,7 +73,7 @@ function Sandbox() {
   // eg set focus in a field (see way below)
   const inputRef = useRef()
 
-  // or can store reference to anything - an integer, a fucntion, anything
+  // or can store reference to anything - an integer, a function, anything
   // eg maybe useful for "local vars" when dont want to store as state and hence be tied to re-rendering on value changes
   const intValue = useRef(23)
   // ... such a local var can be used to keep to track if a component is mounted, so as to prevent setting state to an
@@ -99,18 +99,22 @@ function Sandbox() {
 
         <div>
           <h4>Form</h4>
+          User:
           <input name="user" onChange={e => setUser(e.target.value)} value={user} />
+          Password:
           <input type="password" name="password" onChange={e => setPassword(e.target.value)} value={password} />
           <p>User: {user}, Password: {password}</p>
         </div>
 
         <div>
           <h4>Form 2</h4>
+          firstName:
           <input name="firstName" onChange={handleChange} value={formValues.firstName}
             ref={inputRef}
           />
+          lastName:
           <input name="lastName" onChange={handleChange} value={formValues.lastName} />
-          <p>a: {formValues.firstName}, b: {formValues.lastName}</p>
+          <p>firstName: {formValues.firstName}, lastName: {formValues.lastName}</p>
         </div>
 
         <div>
