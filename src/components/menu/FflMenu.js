@@ -26,7 +26,6 @@ function FflMenu() {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose}><Link to="/teambuilder">Team Builder</Link></MenuItem>
-        <MenuItem onClick={handleClose}><Link to="/sandbox">Sandbox</Link></MenuItem>
       </Menu>
     </nav>
   );
