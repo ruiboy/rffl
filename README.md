@@ -1,4 +1,4 @@
-FFL app with React Hooks.  Just a toy at this stage.
+FFL app with React Hooks.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
