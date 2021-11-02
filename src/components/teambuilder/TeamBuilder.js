@@ -1,6 +1,5 @@
+import { Container, Grid } from '@mui/material';
 import React from "react";
-import { Container, Typography, Grid, Paper } from '@material-ui/core';
-import PlayerCard from "../player/PlayerCard";
 import PositionList from "./PositionList";
 import { testPlayers } from "./testData";
 

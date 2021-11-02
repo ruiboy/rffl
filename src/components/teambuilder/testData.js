@@ -30,5 +30,13 @@ export const testPlayers = [
       stats: [
         { round: "5", k: 8, h: 19, m: 2, t: 1, r: 0, g: 1, s: 70 }
       ]
+    },
+    {
+      name: "Hugh Greenwood",
+      aflClub: "Gold Coast Suns",
+      position: "tackles",
+      stats: [
+        { round: "5", k: 8, h: 5, m: 2, t: 10, r: 0, g: 1, s: 70 }
+      ]
     }
   ];

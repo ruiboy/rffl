@@ -1,4 +1,4 @@
-import { Box, Typography } from '@material-ui/core';
+import { Box, Item, Stack, Typography } from '@mui/material';
 import React from "react";
 import PlayerCard from "../player/PlayerCard";
 
@@ -9,9 +9,11 @@ const PositionList = (props) => {
   return (
     <Box>
       <Typography variant="h6">{heading}</Typography>
-      {players.map((player) => (
-        <PlayerCard key={player.name} player={player} />
-      ))}
+      <Stack spacing={1}>
+        {players.map((player) => (
+            <PlayerCard key={player.name} player={player} />
+        ))}
+      </Stack>
     </Box>
   );
 }
