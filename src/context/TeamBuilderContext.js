@@ -2,6 +2,9 @@ import produce from "immer";
 import React, { createContext, useReducer } from "react";
 import { testPlayers } from "./testData";
 
+// This is the store and reducer for the TeamBuilder, done with react Context and userReducer hook (no redux).
+// Inspired by this exellent article: https://www.sitepoint.com/replace-redux-react-hooks-context-api/
+
 export const TeamBuilderContext = createContext();
 
 const initialState = {

@@ -21,8 +21,8 @@ const PlayerTeamActions = (props) => {
       <Button onClick={() => setPosition(player.name, "handballs")}>H</Button>
       <Button onClick={() => setPosition(player.name, "marks")}>M</Button>
       <Button onClick={() => setPosition(player.name, "tackles")}>T</Button>
-      <Button onClick={() => setPosition(player.name, "goals")}>G</Button>
       <Button onClick={() => setPosition(player.name, "ruck")}>R</Button>
+      <Button onClick={() => setPosition(player.name, "goals")}>G</Button>
       <Button onClick={() => setPosition(player.name, "star")}>Star</Button>
       <Button onClick={() => setPosition(player.name, null)}>Remove</Button>
     </>
