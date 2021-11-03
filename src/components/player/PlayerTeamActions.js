@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 import React, { useContext } from 'react';
-import { TeamBuilderContext } from '../../context/TeamBuilderContext';
+import { ACTIONS, TeamBuilderContext } from '../../context/TeamBuilderContext';
 
 const PlayerTeamActions = (props) => {
   // access dispatch function
@@ -10,7 +10,7 @@ const PlayerTeamActions = (props) => {
 
   const setPosition = (name, position) => {
     dispatch({
-      type: "SET_POSITION",
+      type: ACTIONS.SET_POSITION,
       payload: { name, position }
     });
   };

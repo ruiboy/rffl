@@ -7,6 +7,10 @@ import { testPlayers } from "./testData";
 
 export const TeamBuilderContext = createContext();
 
+export const ACTIONS = {
+  SET_POSITION: "SET_POSITION"
+}
+
 const initialState = {
   players: testPlayers
 }
@@ -16,12 +20,13 @@ const initialState = {
 // that change.  Thanks immer!
 const reducer = produce((draft, action) => {
   switch (action.type) {
-    case "SET_POSITION":
+    case ACTIONS.SET_POSITION:
       const name = action.payload.name;
       const position = action.payload.position;
       const player = draft.players.find(p => p.name === name);
       player.position = position;
       break
+
     default:
       throw new Error();
   }
